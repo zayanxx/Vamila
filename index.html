@@ -1,1 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8d7c8">
+  <meta name="description" content="A little place for a daughter's heart to feel her Appa's love, care, and warmth.">
+  <title>For My Thanga Pulla — A Little Place of Love</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="sky-glow"></div>
+    <div class="sun"></div>
+    <div class="cloud cloud-one"></div>
+    <div class="cloud cloud-two"></div>
+    <div class="distant-hills"></div>
+    <div class="near-hills"></div>
+    <div class="foreground"></div>
+  </div>
+  <div class="heart-field" id="heartField" aria-hidden="true"></div>
 
+  <header class="topbar">
+    <a class="wordmark" href="#" aria-label="For my thanga pulla">
+      <span class="wordmark-heart">♡</span>
+      <span>for my thanga pulla</span>
+    </a>
+    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+      <span class="music-icon" aria-hidden="true">♫</span>
+      <span id="musicLabel">A little music</span>
+      <span class="music-state" id="musicState">OFF</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="screen screen-welcome is-active" id="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-layout">
+        <div class="welcome-copy">
+          <span class="eyebrow"><span class="eyebrow-line"></span> a little imagined note from appa</span>
+          <h1 id="welcomeTitle">Some love<br>stays <em>forever.</em></h1>
+          <p class="welcome-subtitle">A quiet little place to feel close to the love that never leaves.</p>
+          <div class="message-card welcome-card">
+            <span class="card-sparkle" aria-hidden="true">✦</span>
+            <p class="typewriter" id="openingLine" aria-live="polite"></p>
+            <span class="card-heart" aria-hidden="true">♡</span>
+          </div>
+          <button class="primary-button" id="toCare" type="button">
+            <span>Appa</span><span class="button-heart">❤️</span>
+            <span class="button-arrow" aria-hidden="true">→</span>
+          </button>
+          <p class="gentle-note">Take your time. This little space is yours.</p>
+        </div>
+
+        <div class="character-stage welcome-stage" aria-label="A gentle illustrated father smiling">
+          <div class="stage-orbit orbit-one"></div>
+          <div class="stage-orbit orbit-two"></div>
+          <div class="stage-spark stage-spark-one">✦</div>
+          <div class="stage-spark stage-spark-two">✧</div>
+          <div class="stage-ground"></div>
+          <div class="person dad dad-welcome" data-expression="smile">
+            <div class="person-shadow"></div>
+            <div class="legs"><i></i><i></i></div>
+            <div class="body">
+              <i class="shirt-seam"></i>
+              <i class="shirt-button button-one"></i><i class="shirt-button button-two"></i>
+            </div>
+            <div class="neck"></div>
+            <div class="arm arm-left"><i class="hand"></i></div>
+            <div class="arm arm-right"><i class="hand"></i></div>
+            <div class="head">
+              <i class="hair"></i>
+              <i class="ear ear-left"></i><i class="ear ear-right"></i>
+              <i class="brow brow-left"></i><i class="brow brow-right"></i>
+              <i class="eye eye-left"></i><i class="eye eye-right"></i>
+              <i class="nose"></i><i class="mustache mustache-left"></i><i class="mustache mustache-right"></i>
+              <i class="mouth"></i>
+              <i class="cheek cheek-left"></i><i class="cheek cheek-right"></i>
+            </div>
+          </div>
+          <div class="stage-caption">always near, in all the little ways</div>
+        </div>
+      </div>
+      <div class="page-indicator" aria-label="Page 1 of 4"><span class="current"></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="screen screen-care" id="care" aria-labelledby="careTitle" aria-hidden="true">
+      <div class="care-layout">
+        <div class="care-heading">
+          <span class="eyebrow"><span class="eyebrow-line"></span> little things appa wants you to remember</span>
+          <h2 id="careTitle">His love is in<br><em>every little reminder.</em></h2>
+          <p>One soft reminder at a time, just like he always would.</p>
+          <div class="care-portrait character-stage">
+            <div class="portrait-glow"></div>
+            <div class="person dad dad-small" data-expression="smile">
+              <div class="legs"><i></i><i></i></div>
+              <div class="body"><i class="shirt-seam"></i><i class="shirt-button button-one"></i><i class="shirt-button button-two"></i></div>
+              <div class="neck"></div><div class="arm arm-left"><i class="hand"></i></div><div class="arm arm-right"><i class="hand"></i></div>
+              <div class="head">
+                <i class="hair"></i><i class="ear ear-left"></i><i class="ear ear-right"></i>
+                <i class="brow brow-left"></i><i class="brow brow-right"></i><i class="eye eye-left"></i><i class="eye eye-right"></i>
+                <i class="nose"></i><i class="mustache mustache-left"></i><i class="mustache mustache-right"></i><i class="mouth"></i>
+                <i class="cheek cheek-left"></i><i class="cheek cheek-right"></i>
+              </div>
+            </div>
+            <span class="portrait-note">with all my love, appa ♡</span>
+          </div>
+        </div>
+        <div class="advice-panel">
+          <div class="advice-topline">
+            <span class="advice-label"><span class="tiny-heart">♡</span> a message for you</span>
+            <span class="message-count" id="messageCount">01 <span>/</span> 12</span>
+          </div>
+          <div class="advice-content" aria-live="polite" aria-atomic="true">
+            <span class="advice-quote" id="adviceQuote" aria-hidden="true">“</span>
+            <p class="advice-text" id="adviceText"></p>
+            <span class="advice-flower" id="adviceFlower" aria-hidden="true">✿</span>
+          </div>
+          <div class="advice-progress" id="adviceProgress" aria-hidden="true"></div>
+          <div class="advice-footer">
+            <p class="advice-hint" id="adviceHint">Read it whenever you're ready.</p>
+            <button class="primary-button advice-next" id="nextAdvice" type="button">
+              <span>Next little reminder</span><span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+          <div class="advice-footer-end" id="adviceEnd" hidden>
+            <span>You are so loved, kanna.</span>
+            <button class="text-button" id="toHug" type="button">Come here for a hug <span aria-hidden="true">♡</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="page-indicator" aria-label="Page 2 of 4"><span></span><span class="current"></span><span></span><span></span></div>
+    </section>
+
+    <section class="screen screen-hug" id="hug" aria-labelledby="hugTitle" aria-hidden="true">
+      <div class="hug-heading">
+        <span class="eyebrow"><span class="eyebrow-line"></span> right here, right now</span>
+        <h2 id="hugTitle">en thanga pulla inga vaanga dey<br><em>appa kita hug vaangikonga?</em></h2>
+      </div>
+      <div class="hug-stage" id="hugStage" aria-label="An illustrated father and daughter, together">
+        <div class="hug-moon"></div>
+        <div class="hug-spark spark-a">✦</div><div class="hug-spark spark-b">✧</div><div class="hug-spark spark-c">✦</div>
+        <div class="hug-ground"></div>
+        <div class="person dad dad-hug" data-expression="gentle">
+          <div class="person-shadow"></div><div class="legs"><i></i><i></i></div>
+          <div class="body"><i class="shirt-seam"></i><i class="shirt-button button-one"></i><i class="shirt-button button-two"></i></div>
+          <div class="neck"></div><div class="arm arm-left"><i class="hand"></i></div><div class="arm arm-right"><i class="hand"></i></div>
+          <div class="head">
+            <i class="hair"></i><i class="ear ear-left"></i><i class="ear ear-right"></i>
+            <i class="brow brow-left"></i><i class="brow brow-right"></i><i class="eye eye-left"></i><i class="eye eye-right"></i>
+            <i class="nose"></i><i class="mustache mustache-left"></i><i class="mustache mustache-right"></i><i class="mouth"></i>
+            <i class="cheek cheek-left"></i><i class="cheek cheek-right"></i>
+          </div>
+          <i class="patting-hand" aria-hidden="true"></i>
+        </div>
+        <div class="person daughter daughter-hug" aria-label="An illustrated daughter approaching her father">
+          <div class="person-shadow"></div><div class="legs"><i></i><i></i></div>
+          <div class="body"><i class="dress-fold"></i></div>
+          <div class="neck"></div><div class="arm arm-left"><i class="hand"></i></div><div class="arm arm-right"><i class="hand"></i></div>
+          <div class="head">
+            <i class="hair"></i><i class="ear ear-left"></i><i class="ear ear-right"></i>
+            <i class="brow brow-left"></i><i class="brow brow-right"></i><i class="eye eye-left"></i><i class="eye eye-right"></i>
+            <i class="nose"></i><i class="mouth"></i><i class="cheek cheek-left"></i><i class="cheek cheek-right"></i>
+          </div>
+        </div>
+        <div class="hug-heart" aria-hidden="true">♡</div>
+      </div>
+      <div class="hug-bottom">
+        <p class="hug-dialogue" id="hugDialogue" aria-live="polite"></p>
+        <button class="primary-button hug-button" id="startHug" type="button"><span>Appa,</span><span class="button-heart">❤️</span></button>
+      </div>
+      <div class="page-indicator" aria-label="Page 3 of 4"><span></span><span></span><span class="current"></span><span></span></div>
+    </section>
+
+    <section class="screen screen-final" id="final" aria-labelledby="finalTitle" aria-hidden="true">
+      <div class="final-layout">
+        <div class="final-scene" aria-label="A peaceful illustrated father and daughter standing together at sunset">
+          <div class="final-sun"></div><div class="final-hill hill-back"></div><div class="final-hill hill-front"></div>
+          <div class="final-glow"></div>
+          <div class="final-family">
+            <div class="person dad dad-final" data-expression="gentle">
+              <div class="person-shadow"></div><div class="legs"><i></i><i></i></div>
+              <div class="body"><i class="shirt-seam"></i><i class="shirt-button button-one"></i><i class="shirt-button button-two"></i></div>
+              <div class="neck"></div><div class="arm arm-left"><i class="hand"></i></div><div class="arm arm-right"><i class="hand"></i></div>
+              <div class="head">
+                <i class="hair"></i><i class="ear ear-left"></i><i class="ear ear-right"></i>
+                <i class="brow brow-left"></i><i class="brow brow-right"></i><i class="eye eye-left"></i><i class="eye eye-right"></i>
+                <i class="nose"></i><i class="mustache mustache-left"></i><i class="mustache mustache-right"></i><i class="mouth"></i>
+                <i class="cheek cheek-left"></i><i class="cheek cheek-right"></i>
+              </div>
+            </div>
+            <div class="person daughter daughter-final" aria-hidden="true">
+              <div class="person-shadow"></div><div class="legs"><i></i><i></i></div><div class="body"><i class="dress-fold"></i></div>
+              <div class="neck"></div><div class="arm arm-left"><i class="hand"></i></div><div class="arm arm-right"><i class="hand"></i></div>
+              <div class="head">
+                <i class="hair"></i><i class="ear ear-left"></i><i class="ear ear-right"></i>
+                <i class="brow brow-left"></i><i class="brow brow-right"></i><i class="eye eye-left"></i><i class="eye eye-right"></i>
+                <i class="nose"></i><i class="mouth"></i><i class="cheek cheek-left"></i><i class="cheek cheek-right"></i>
+              </div>
+            </div>
+          </div>
+          <span class="scene-caption">together, in every sunset ♡</span>
+        </div>
+        <div class="final-copy">
+          <span class="eyebrow"><span class="eyebrow-line"></span> a little note to keep</span>
+          <h2 id="finalTitle">Forever my<br><em>little girl.</em></h2>
+          <div class="final-letter">
+            <p class="letter-greeting">En chellaponnukku...</p>
+            <p>Ozhungaa saapidu.<br>Nallaa thoongu.<br>Niraiyaa sirichittu iru.</p>
+            <p>Appa sona ellam manasula irukkanum naa check panuva.</p>
+            <p class="letter-love">I Love You, Maa. <span>❤️</span></p>
+          </div>
+          <p class="forever-line">Forever Your Little Girl.</p>
+          <span class="final-flower" aria-hidden="true">✿</span>
+        </div>
+      </div>
+      <button class="restart-button" id="startAgain" type="button">Read it again <span aria-hidden="true">↗</span></button>
+      <div class="page-indicator" aria-label="Page 4 of 4"><span></span><span></span><span></span><span class="current"></span></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
