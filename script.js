@@ -15,6 +15,7 @@
   const musicToggle = document.getElementById('musicToggle');
   const musicLabel = document.getElementById('musicLabel');
   const musicState = document.getElementById('musicState');
+  const backgroundMusic = document.getElementById('backgroundMusic');
   const heartField = document.getElementById('heartField');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -42,10 +43,7 @@
   let currentAdvice = 0;
   let openingTimer = 0;
   let hugTimers = [];
-  let audioContext = null;
-  let musicNodes = [];
   let musicPlaying = false;
-  let melodyTimer = 0;
   let heartTimer = 0;
 
   function showScreen(id) {
@@ -157,25 +155,9 @@
     heartField.append(heart);
   }
 
-  function makeTone(context, frequency, volume, type = 'sine') {
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
-    oscillator.type = type;
-    oscillator.frequency.value = frequency;
-    gain.gain.value = 0;
-    oscillator.connect(gain);
-    gain.connect(context.destination);
-    oscillator.start();
-    gain.gain.setTargetAtTime(volume, context.currentTime, .8);
-    musicNodes.push({ oscillator, gain });
-    return { oscillator, gain };
-  }
-
   async function toggleMusic() {
     if (musicPlaying) {
-      if (audioContext && audioContext.state !== 'closed') await audioContext.suspend();
-      window.clearInterval(melodyTimer);
-      melodyTimer = 0;
+      backgroundMusic.pause();
       musicPlaying = false;
       musicToggle.setAttribute('aria-pressed', 'false');
       musicLabel.textContent = 'A little music';
@@ -184,38 +166,17 @@
     }
 
     try {
-      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContextClass) throw new Error('Web Audio is not available in this browser.');
-      if (!audioContext || audioContext.state === 'closed') {
-        audioContext = new AudioContextClass();
-        musicNodes = [];
-        makeTone(audioContext, 130.81, .012);
-        makeTone(audioContext, 164.81, .008);
-        makeTone(audioContext, 196, .006);
-        makeTone(audioContext, 261.63, .004);
-        makeTone(audioContext, 523.25, .003, 'triangle');
-      }
-      if (audioContext.state === 'suspended') await audioContext.resume();
-      const melody = musicNodes[musicNodes.length - 1];
-      const notes = [523.25, 392, 440, 392, 349.23, 329.63, 392, 261.63];
-      let noteIndex = 0;
-      window.clearInterval(melodyTimer);
-      melodyTimer = window.setInterval(() => {
-        if (audioContext.state !== 'running') return;
-        melody.oscillator.frequency.setTargetAtTime(notes[noteIndex % notes.length], audioContext.currentTime, .24);
-        melody.gain.gain.setTargetAtTime(.004, audioContext.currentTime, .3);
-        noteIndex += 1;
-      }, 1900);
+      await backgroundMusic.play();
       musicPlaying = true;
       musicToggle.setAttribute('aria-pressed', 'true');
-      musicLabel.textContent = 'Soft lullaby';
+      musicLabel.textContent = 'The Feel of Baththa';
       musicState.textContent = 'ON';
     } catch (error) {
       musicPlaying = false;
       musicToggle.setAttribute('aria-pressed', 'false');
       musicLabel.textContent = 'Music unavailable';
       musicState.textContent = 'OFF';
-      console.error('Could not start the optional background music:', error);
+      console.error('Could not play The Feel of Baththa.mp3:', error);
     }
   }
 
@@ -253,11 +214,7 @@
   window.addEventListener('pagehide', () => {
     window.clearInterval(openingTimer);
     window.clearInterval(heartTimer);
-    window.clearInterval(melodyTimer);
     clearHugTimers();
-    musicNodes.forEach(({ oscillator }) => {
-      try { oscillator.stop(); } catch { /* The oscillator may already be stopped. */ }
-    });
+    backgroundMusic.pause();
   }, { once: true });
 })();
-
